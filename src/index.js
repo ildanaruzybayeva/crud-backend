@@ -1,3 +1,6 @@
+///CRUD table backend
+///based on https://codesandbox.io/s/fastify-005-cors-8ecmk
+
 const fastify = require("fastify");
 const fastifyCors = require("fastify-cors");
 const { Client } = require("pg");
