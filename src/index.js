@@ -14,7 +14,7 @@ const server = fastify({ logger: true });
 server.register(fastifyCors, {});
 
 server.get("/", async (request, reply) => {
-  const sql = "SELECT * FROM peeps";
+  const sql = "SELECT * FROM peeps ORDER BY name ASC";
   const result = await client.query(sql);
   reply.send(result.rows);
 });
