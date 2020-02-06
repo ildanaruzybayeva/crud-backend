@@ -33,6 +33,13 @@ server.delete("/:id", async (request, reply) => {
   reply.send(result);
 });
 
+server.put("/:id", async (request, reply) => {
+  const sql = "UPDATE peeps SET name = $1, username = $2 WHERE id=$3;";
+  const values = [request.body.name, request.body.username, request.params.id];
+  const result = await client.query(sql, values);
+  reply.send(result);
+});
+
 (async () => {
   try {
     await client.connect();
